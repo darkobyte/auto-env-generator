@@ -4,6 +4,7 @@
 [![Documentation](https://docs.rs/auto-env-generator/badge.svg)](https://docs.rs/auto-env-generator)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
+
 A fast, parallel Rust tool for automatically scanning your codebase and generating `.env` files based on detected environment variable usage. Uses efficient pattern matching with Aho-Corasick and memchr for sub-second performance even on large projects.
 
 ## Features
@@ -62,10 +63,10 @@ use auto_env_generator::generate_env_file;
 fn main() -> Result<(), Box<dyn std::error::Error>> {
     // Generate .env file for current directory
     generate_env_file(".")?;
-    
+
     // Or scan a specific directory
     generate_env_file("./my-project")?;
-    
+
     Ok(())
 }
 ```
@@ -81,7 +82,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
         merge_existing: Some(false),
         ignore: Some(vec!["DEBUG".to_string(), "TEST_MODE".to_string()]),
     };
-    
+
     generate_env_file_with_config("./my-project", config)?;
     Ok(())
 }
@@ -96,7 +97,7 @@ The tool efficiently scans for these patterns:
 let db_url = std::env::var("DATABASE_URL").unwrap();
 let api_key = env::var("API_KEY").unwrap();
 
-// dotenv crate calls  
+// dotenv crate calls
 let secret = dotenv::var("SECRET_KEY").unwrap();
 
 // With _os variants
@@ -129,7 +130,7 @@ merge_existing = true
 # List of variable names to ignore
 ignore = [
     "HOME",
-    "PATH", 
+    "PATH",
     "USER",
     "DEBUG",
     "TEST_MODE"
@@ -357,7 +358,7 @@ async fn main() {
     let redis_url = env::var("REDIS_URL").unwrap_or_default();
     let jwt_secret = env::var("JWT_SECRET").expect("JWT_SECRET must be set");
     let port = env::var("PORT").unwrap_or_else(|_| "3000".to_string());
-    
+
     // ... rest of your app
 }
 ```

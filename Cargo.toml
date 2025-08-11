@@ -1,7 +1,35 @@
 [package]
 name = "auto-env-generator"
 version = "0.1.0"
-edition = "2021"
+edition = "2024"
+authors = ["Darkobyte <gianluca.sima@icloud.com>"]
+description = "Fast, parallel Rust tool for automatically scanning codebases and generating .env files based on detected environment variable usage"
+documentation = "https://docs.rs/auto-env-generator"
+homepage = "https://github.com/darkobyte/auto-env-generator"
+repository = "https://github.com/darkobyte/auto-env-generator"
+license = "MIT"
+keywords = ["env", "environment", "dotenv", "cli", "automation"]
+categories = ["command-line-utilities", "development-tools", "config"]
+readme = "README.md"
+include = [
+    "src/**/*",
+    "benches/**/*",
+    "examples/**/*",
+    "tests/**/*",
+    "Cargo.toml",
+    "README.md",
+    "LICENSE",
+    "autoenv.toml.example",
+]
+exclude = [
+    "target/*",
+    ".git/*",
+    "test.env",
+    "test-with-config.env",
+    "autoenv.toml",
+    ".env*",
+    "example-project/*",
+]
 
 [[bin]]
 name = "autoenv"
