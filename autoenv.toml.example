@@ -1,0 +1,51 @@
+# Auto Environment Generator Configuration File
+# Copy this file to autoenv.toml and customize as needed
+
+# Output file name (default: ".env")
+# You can specify any filename like ".env.example", ".env.local", etc.
+output = ".env"
+
+# Whether to merge with existing file without overwriting values (default: true)
+# If true: preserves existing variable values, only adds new empty variables
+# If false: overwrites the entire file with detected variables (all empty)
+merge_existing = true
+
+# List of environment variable names to ignore during scanning
+# These variables will not be included in the generated .env file
+ignore = [
+    # Common system variables that usually don't belong in .env files
+    "HOME",
+    "PATH",
+    "USER",
+    "USERNAME",
+    "SHELL",
+    "PWD",
+    "TERM",
+
+    # Common development variables you might want to skip
+    "DEBUG",
+    "TEST_MODE",
+    "DEVELOPMENT",
+
+    # CI/CD variables that are usually set by the platform
+    "CI",
+    "GITHUB_TOKEN",
+    "TRAVIS_BUILD_NUMBER",
+    "JENKINS_URL",
+
+    # Add your own variables to ignore here
+    # "MY_CUSTOM_VAR",
+]
+
+# Example configurations for different use cases:
+
+# For generating .env.example files (empty templates):
+# output = ".env.example"
+# merge_existing = false
+
+# For production environments (preserve all existing values):
+# output = ".env.production"
+# merge_existing = true
+
+# For development with minimal variables:
+# ignore = ["HOME", "PATH", "USER", "DEBUG", "TEST_*"]
