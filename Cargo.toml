@@ -21,15 +21,6 @@ include = [
     "LICENSE",
     "autoenv.toml.example",
 ]
-exclude = [
-    "target/*",
-    ".git/*",
-    "test.env",
-    "test-with-config.env",
-    "autoenv.toml",
-    ".env*",
-    "example-project/*",
-]
 
 [[bin]]
 name = "autoenv"
